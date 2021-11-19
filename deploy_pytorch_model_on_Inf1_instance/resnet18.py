@@ -1,9 +1,13 @@
-def input_fn(request_body, request_content_type):
-    import io
+import io
+import os
+import torch
+import torchvision.transforms as transforms
+from PIL import Image
 
-    import torch
-    import torchvision.transforms as transforms
-    from PIL import Image
+    
+
+def input_fn(request_body, request_content_type):
+  
 
     f = io.BytesIO(request_body)
     input_image = Image.open(f).convert("RGB")
